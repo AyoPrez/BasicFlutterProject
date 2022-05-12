@@ -1,0 +1,22 @@
+Notas:
+
+-Cada usuario elige al principio de la competición a todos los luchadores que compondrán su equipo.
+-No se escoge a un equipo de la competición. En su lugar, hay un equipo inventado para el juego.
+-Las puntuaciones semanales de los luchadores se sacan a partir de el número de luchadores que ha tirado esa semana
+más una media de los que ha tirado en el resto de la competición restando un poco a los "altos cargos (puntales más altos)".
+Así, si un luchador, Puntal A, tira en la luchada a 3, y la semana pasada tiró a 3, pues (3 + 3) / 1,5 (coeficiente Puntal A) = 4.
+Es un ejemplo. Se puede repensar.
+-Que hayan sobres de cromos coleccionables. Se regalan algunos cada semana, y otros se pueden comprar.
+-Cromos de leyendas.
+-Los cromos se pueden intercambiar y/o vender.
+-Todos los cromos llevan el número total de ese cromo y el número concreto (hay 100 y este es el 21). Los de leyenda son más escasos que los actuales.
+-El usuario debe participar en una liga donde compite con otros. Se pueden crear grupos privador y hay una competición pública.
+-El ganador de la competición pública recibe un premio (si hay mucha gente, que sean los tres primeros).
+-Que haya una competición por isla y una para el archipielago completo.
+-El jugador empieza con una cantidad de monedas para fichar, pero puede comprar más con euros.
+-En la pantalla principal se ve la evolución del equipo.
+-Una pestaña con "Mi equipo" donde el usuario puede ver su equipo actual con los puntos de la última semana y los totales por luchador.
+-Una pestaña con opciones (datos del usuario, cerrar sesión, eliminar cuanta, documentación, etc)
+-Una pestaña con los resultados de las luchadas y el calendario
+-Una pestaña con los grupos en los que estoy compitiendo, clasificación y otros equipos
+
