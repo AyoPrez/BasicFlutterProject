@@ -10,9 +10,9 @@ class Routes {
 
   static final Handler _splashScreen = Handler(handlerFunc: (context, parameters) => const SplashScreen());
 
-  static final Handler _loginScreen = Handler(handlerFunc: (context, parameters) => Login());
+  static final Handler _loginScreen = Handler(handlerFunc: (context, parameters) => const Login());
 
-  static final Handler _registerScreen = Handler(handlerFunc: (context, parameters) => CreateAccount());
+  static final Handler _registerScreen = Handler(handlerFunc: (context, parameters) => const CreateAccount());
 
   static final Handler _mainScreen = Handler(handlerFunc: (context, parameters) => const MainScreen());
 
