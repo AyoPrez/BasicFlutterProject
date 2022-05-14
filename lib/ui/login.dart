@@ -26,13 +26,28 @@ class _LoginState extends State<Login> {
               width: 400,
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: MouseRegion(child: TextField()),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: MouseRegion(
+                      child: TextField(
+                        decoration: InputDecoration(
+                            icon: const Icon(Icons.account_box_outlined),
+                            hintText: AppLocalizations.of(context).username),
+                      ),
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: MouseRegion(child: TextField()),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: MouseRegion(
+                      child: TextField(
+                        obscureText: true,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                        decoration: InputDecoration(
+                            icon: const Icon(Icons.key),
+                            hintText: AppLocalizations.of(context).password),
+                      ),
+                    ),
                   ),
                   Wrap(children: [
                     Padding(

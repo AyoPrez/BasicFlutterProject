@@ -3,7 +3,7 @@ import 'package:lucha_fantasy/storage_manager.dart';
 
 class ThemeNotifier with ChangeNotifier {
   final darkTheme = ThemeData(
-    primarySwatch: Colors.blue,
+    primarySwatch: Colors.green,
     primaryColor: Colors.black,
     brightness: Brightness.dark,
     backgroundColor: const Color(0xFF212121),
