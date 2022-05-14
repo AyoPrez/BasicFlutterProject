@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyTabletBody extends StatelessWidget {
-  const MyTabletBody({Key? key}) : super(key: key);
+class MainTabletBody extends StatelessWidget {
+  const MainTabletBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

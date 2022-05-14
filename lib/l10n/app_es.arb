@@ -1,3 +1,9 @@
 {
-  "appName": "Lucha Canaria fantasy"
+  "appName": "Lucha Canaria fantasy",
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "createAccount": "Crear cuenta",
+  "username": "Nombre de usuario",
+  "password": "Contraseña",
+  "email": "Correo electrónico"
 }

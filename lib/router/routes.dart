@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
-import 'package:lucha_fantasy/ui/MainScreen.dart';
 import 'package:lucha_fantasy/ui/create_account.dart';
 import 'package:lucha_fantasy/ui/login.dart';
+import 'package:lucha_fantasy/ui/main/MainScreen.dart';
 
 import '../ui/SplashScreen.dart';
 
@@ -20,7 +20,7 @@ class Routes {
     router.define('/', handler: _splashScreen);
     router.define('/iniciar', handler: _loginScreen, transitionType: TransitionType.fadeIn);
     router.define('/registro', handler: _registerScreen, transitionType: TransitionType.native);
-    router.define('/principal/:name', handler: _mainScreen);
+    router.define('/principal', handler: _mainScreen);
   }
 
 }
