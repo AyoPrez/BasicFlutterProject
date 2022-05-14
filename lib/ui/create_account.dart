@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lucha_fantasy/theme_manager.dart';
+import 'package:lucha_fantasy/ui/widgets/app_bar.dart';
+import 'package:provider/provider.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
@@ -9,29 +12,11 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Lucha Canaria fantasy"),
-          automaticallyImplyLeading: true,
-          actions: [
-            //switch between dark and light mode
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: MouseRegion(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.nightlight,
-                      size: 26.0,
-                    ),
-                  ),
-                )
-            ),
-          ],
-        ),
+    return Consumer<ThemeNotifier>(
+      builder: (context, theme, _) => Scaffold(
+        appBar: SimpleAppBar(theme: theme),
         body: Padding(
           padding: const EdgeInsets.all(80.0),
           child: Center(
@@ -51,8 +36,10 @@ class _CreateAccountState extends State<CreateAccount> {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: MouseRegion(
-                        child: OutlinedButton(onPressed: () {
-                        }, child: Text("Crear cuenta")),
+                        child: OutlinedButton(
+                            onPressed: () {},
+                            child: Text(
+                                AppLocalizations.of(context).createAccount)),
                       ),
                     ),
                   ])
@@ -60,7 +47,8 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
-
 }

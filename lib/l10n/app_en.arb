@@ -1,3 +1,9 @@
 {
-  "appName": "Lucha Canaria fantasy"
+  "appName": "Lucha Canaria fantasy",
+  "login": "Login",
+  "register": "Register",
+  "createAccount": "Create account",
+  "username": "Username",
+  "password": "Password",
+  "email": "Email"
 }

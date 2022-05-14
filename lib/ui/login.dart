@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lucha_fantasy/ui/widgets/app_bar.dart';
+import 'package:provider/provider.dart';
+
+import '../theme_manager.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -11,30 +16,13 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Lucha Canaria fantasy"),
-          automaticallyImplyLeading: false,
-          actions: [
-            //switch between dark and light mode
-            Padding(
-                padding: EdgeInsets.only(right: 20.0),
-                child: MouseRegion(
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.nightlight,
-                      size: 26.0,
-                    ),
-                  ),
-                )
-            ),
-          ],
-        ),
+    return Consumer<ThemeNotifier>(
+      builder: (context, theme, _) => Scaffold(
+        appBar: SimpleAppBar(theme: theme),
         body: Padding(
           padding: const EdgeInsets.all(80.0),
           child: Center(
-            child: Container(
+            child: SizedBox(
               width: 400,
               child: Column(
                 children: [
@@ -50,17 +38,21 @@ class _LoginState extends State<Login> {
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: MouseRegion(
-                        child: OutlinedButton(onPressed: () {
-                          Navigator.pushNamed(context, "/pricipal/:user");
-                        }, child: Text("Iniciar sesión")),
+                        child: OutlinedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/principal");
+                            },
+                            child: Text(AppLocalizations.of(context).login)),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: MouseRegion(
-                        child: OutlinedButton(onPressed: () {
-                          Navigator.pushNamed(context, "/registro");
-                        }, child: Text("Crear cuenta")),
+                        child: OutlinedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, "/registro");
+                            },
+                            child: Text(AppLocalizations.of(context).register)),
                       ),
                     ),
                   ])
@@ -68,6 +60,8 @@ class _LoginState extends State<Login> {
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
