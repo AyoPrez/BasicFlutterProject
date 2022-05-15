@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lucha_fantasy/responsive/dimens.dart';
 import 'package:lucha_fantasy/theme_manager.dart';
 import 'package:lucha_fantasy/ui/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,7 @@ class _CreateAccountState extends State<CreateAccount> {
           padding: const EdgeInsets.all(80.0),
           child: Center(
             child: SizedBox(
-              width: 400,
+              width: formFieldsWidth,
               child: Column(
                 children: [
                   Padding(

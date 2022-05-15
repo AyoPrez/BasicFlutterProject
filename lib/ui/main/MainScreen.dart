@@ -14,6 +14,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(mobileBody: MainMobileBody(), desktopBody: MainDesktopBody(), tabletBody: MainTabletBody());
+    return ResponsiveLayout(mobileBody: const MainMobileBody(), desktopBody: const MainDesktopBody(), tabletBody: const MainTabletBody());
   }
 }
