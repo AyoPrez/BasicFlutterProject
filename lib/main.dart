@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:lucha_fantasy/injection.dart';
 import 'package:lucha_fantasy/router/routes.dart';
 import 'package:provider/provider.dart';
 
 import 'theme_manager.dart';
 
-void main() {
-  return runApp(ChangeNotifierProvider<ThemeNotifier>(
-    create: (_) => ThemeNotifier(),
-    child: const MyApp(),
-  ));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
+  return runApp(
+    ChangeNotifierProvider<ThemeNotifier>(
+      create: (_) => ThemeNotifier(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -30,23 +35,23 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeNotifier>(
-        builder: (context, theme, _) => MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: "Lucha Canaria Fantasy",
-            localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: const [
-              Locale('en', ''),
-              Locale('es', ''),
-            ],
-            initialRoute: '/',
-            onGenerateRoute: Routes.router.generator,
-            theme: theme.getTheme(),
-        ),
+      builder: (context, theme, _) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Lucha Canaria Fantasy",
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en', ''),
+          Locale('es', ''),
+        ],
+        initialRoute: '/',
+        onGenerateRoute: Routes.router.generator,
+        theme: theme.getTheme(),
+      ),
     );
   }
 }
