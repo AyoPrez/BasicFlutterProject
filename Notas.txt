@@ -19,4 +19,5 @@ Es un ejemplo. Se puede repensar.
 -Una pestaña con opciones (datos del usuario, cerrar sesión, eliminar cuanta, documentación, etc)
 -Una pestaña con los resultados de las luchadas y el calendario
 -Una pestaña con los grupos en los que estoy compitiendo, clasificación y otros equipos
+-Que hayan ligas con premios en metálico donde todos ponen una cantidad y el administrador decide si se lleva el premio uno o varios.
 

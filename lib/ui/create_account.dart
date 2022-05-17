@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lucha_fantasy/presenter/singup_presenter.dart';
 import 'package:lucha_fantasy/responsive/dimens.dart';
 import 'package:lucha_fantasy/theme_manager.dart';
 import 'package:lucha_fantasy/ui/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
+
+import '../injection.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
@@ -13,6 +16,11 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
+
+  final SignUpPresenter presenter = locator.get<SignUpPresenter>();
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ThemeNotifier>(
@@ -39,6 +47,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     padding: const EdgeInsets.all(10.0),
                     child: MouseRegion(
                       child: TextField(
+                        controller: usernameController,
                         decoration: InputDecoration(
                             icon: const Icon(Icons.account_box_outlined),
                             hintText: AppLocalizations.of(context).username),
@@ -52,6 +61,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         obscureText: true,
                         enableSuggestions: false,
                         autocorrect: false,
+                        controller: passwordController,
                         decoration: InputDecoration(
                             icon: const Icon(Icons.key),
                             hintText: AppLocalizations.of(context).password),
@@ -63,18 +73,54 @@ class _CreateAccountState extends State<CreateAccount> {
                       padding: const EdgeInsets.all(5.0),
                       child: MouseRegion(
                         child: OutlinedButton(
-                            onPressed: () {},
-                            child: Text(
-                                AppLocalizations.of(context).createAccount)),
+                            onPressed: () async {
+                              var userSignedUp = await presenter.signupUser(usernameController.value.text, passwordController.value.text);
+
+                              if(userSignedUp) {
+                                Navigator.pushNamed(context, "/iniciar");
+                              } else {
+                                showAlertDialog(context);
+                              }
+                            },
+                            child: Text(AppLocalizations.of(context).createAccount),
+                        ),
                       ),
                     ),
-                  ])
+                  ]),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  showAlertDialog(BuildContext context) {
+
+    // set up the button
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("My title"),
+      content: Text("This is my message."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
