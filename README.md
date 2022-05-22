@@ -1,10 +1,8 @@
-# lucha_fantasy
-
-Juego fantasy y cromos de las ligas de lucha canaria
-
-## Getting Started
+# Basic Flutter Project
 
 This project is a starting point for a Flutter application.
+
+## Getting Started
 
 To start need to run this code in a terminal to build the generated files:
 
