@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:lucha_fantasy/presenter/singup_presenter.dart';
 import 'package:lucha_fantasy/responsive/dimens.dart';
 import 'package:lucha_fantasy/theme_manager.dart';
 import 'package:lucha_fantasy/ui/widgets/app_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../injection.dart';
+import '../presenter/auth_presenter.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({Key? key}) : super(key: key);
@@ -17,9 +17,10 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
 
-  final SignUpPresenter presenter = locator.get<SignUpPresenter>();
+  final AuthPresenter presenter = locator.get<AuthPresenter>();
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +38,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     padding: const EdgeInsets.all(10.0),
                     child: MouseRegion(
                       child: TextField(
+                        controller: emailController,
                         decoration: InputDecoration(
                             icon: const Icon(Icons.mail),
                             hintText: AppLocalizations.of(context).email),
@@ -74,7 +76,10 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: MouseRegion(
                         child: OutlinedButton(
                             onPressed: () async {
-                              var userSignedUp = await presenter.signupUser(usernameController.value.text, passwordController.value.text);
+                              var userSignedUp = await presenter.signupUser(
+                                  emailController.value.text,
+                                  usernameController.value.text,
+                                  passwordController.value.text);
 
                               if(userSignedUp) {
                                 Navigator.pushNamed(context, "/iniciar");

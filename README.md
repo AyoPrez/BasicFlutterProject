@@ -6,11 +6,9 @@ Juego fantasy y cromos de las ligas de lucha canaria
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+To start need to run this code in a terminal to build the generated files:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+*flutter packages pub run build_runner build --delete-conflicting-outputs*
+*flutter gen-l10n*
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project has the basic to start any project. The control and the repository request to login, register and recover the password of a user.
